@@ -1,0 +1,50 @@
+
+<div class="container">
+    <div class="row">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          <h5 class="card-title">Projects List</h5>
+          <i class="fa fa-plus-circle text-primary fa-2x" routerLink="/admin/projects/nouveau" title="add"></i>
+        </div>
+        <div class="card-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Creation Date</th>
+                <th>Start Date</th>
+                <th>End date</th>
+                <th>Update date</th>
+                <th>Project Manager</th>
+                <th>Organisation</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let project of projectList">
+                <td>{{project.code}}</td>
+                <td>{{project.name}}</td>
+                <td>{{project.amount}}</td>
+                <td>{{project.description}}</td>
+                <td>{{project.creationDate}}</td>
+                <td>{{project.startDate}}</td>
+                <td>{{project.endDate}}</td>
+                <td>{{project.updateDate}}</td>
+                <td>{{project.projectmanager.firstname}} {{project.projectmanager.lastname}}</td>
+                <td>{{project.organization.name}}</td>
+                <td>
+                  <i (click)="edit(project.id)" class="fa fa-user-edit text-primary mx-3" title="edit"></i>
+                  <i (click)="delete(project.id)" class="fa fa-trash-alt text-danger" title="Delete"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  

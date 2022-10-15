@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title text-center">
+          {{ title }} project
+        </h5>
+
+        <div class="card-body">
+            <form (ngSubmit)="save()" [formGroup]="projectForm">
+            <div class="card-body">
+              <div class="row my-1">
+                <div class="form-group col-md-4">
+                  <input class="form-control" formControlName="code" placeholder="Project Code"
+                         type="text">
+                  <p *ngIf="f.code.touched && f.code.invalid"
+                     [ngClass]="f.code.invalid? 'text-danger':''">This field is required</p>
+                </div>
+                <div class="form-group col-md-4">
+                  <input class="form-control" formControlName="name" placeholder="Name" type="text">
+                </div>
+                <div class="form-group col-md-4">
+                  <input class="form-control" formControlName="description" placeholder="Description" type="message">
+                </div>
+              </div>
+              <div class="row my-1">
+                <div class="form-group col-md-4">
+                  Creation Date :
+                  <input class="form-control" formControlName="creationDate" type="date">
+                </div>
+                <div class="form-group col-md-4">
+                  End Date :
+                  <input class="form-control" formControlName="endDate" type="date">
+                </div>
+                <div class="form-group col-md-4">
+                  Start Date :
+                  <input class="form-control" formControlName="startDate" type="date">
+                </div>
+                <div class="form-group col-md-4">
+                  Update Date :
+                  <input class="form-control" formControlName="updateDate" type="date">
+                </div>
+              </div>
+              <div class="row my-1">
+                <div class="form-group col-md-2">
+                  <input class="form-control" formControlName="amount" placeholder="Montant" type="text">
+                </div>
+                <div class="form-group col-md-4">
+                  <select class="form-control" formControlName="organization">
+                    <option [ngValue]="null" [disabled]="true">Choisissez une organisation</option>
+                    <option *ngFor="let org of listOrganisations" [ngValue]="org" [selected]="org.id===gpOrganization?.id">
+                      {{org.name}}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <select class="form-control" formControlName="projectmanager">
+                    <option [ngValue]="null" [disabled]="true">Choisissez un Chef de projet </option>
+                    <option *ngFor="let proMan of listProjectManagers" [ngValue]="proMan" [selected]="proMan.id=== gpProjectManager?.id">
+                      {{proMan.firstname}} {{proMan.lastname}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="d-flex card-footer justify-content-center">
+                <button [disabled]="projectForm.invalid" class="btn btn-primary btn-sm mx-2" type="submit">Register</button>
+                <button class="btn btn-secondary btn-sm" type="reset">Reset</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
