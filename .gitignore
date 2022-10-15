@@ -1,1 +1,11 @@
 .metadata/*
+
+# gesproewi-grp3-web
+/gesproewi-grp3-web/node_modules
+
+/gesproewi-grp3-web/gesproewi-grp3-web.code-workspace
+
+/gesproewi-grp3-web/.settings
+
+/gesproewi-grp3-web/.gitignore
+
